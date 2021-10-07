@@ -28,20 +28,23 @@ def memory_count(lst):
 # Найти сумму и произведение цифр трехзначного числа,
 # которое вводит пользователь.
 
-# a = int(input('Введите целое трехзначное число:'))
-#
-# hundred = a // 100
-# dozen = (a // 10) % 10
-# unit = a % 10
-#
-# summa = hundred + dozen + unit
-# mult = hundred * dozen * unit
-#
-# print(f'Сумма цифр в числе: {summa}')
-# print(f'Произведение цифр в числе: {mult}')
+a = int(input('Введите целое трехзначное число:'))
 
-# Затраты памяти программы:  168
-# Переменные:  [234, 3, 2, 24, 9, 4]
+hundred = a // 100
+dozen = (a // 10) % 10
+unit = a % 10
+
+summa = hundred + dozen + unit
+mult = hundred * dozen * unit
+
+print(f'Сумма цифр в числе: {summa}')
+print(f'Произведение цифр в числе: {mult}')
+print(f'Затраты памяти на сумму: {sys.getsizeof(summa)}')
+print(f'Затраты памяти на произведения: {sys.getsizeof(mult)}')
+
+# Затраты памяти на сумму: 28
+# Затраты памяти на произведения: 28
+
 
 
 # ***************************************************************************************************
@@ -74,54 +77,51 @@ def memory_count(lst):
 # *******************Для проверки написанной функции на других типах переменных**************************
 #  Определить, какое число в массиве встречается чаще всего.
 
-# import random
-#
-#
-# SIZE = 10
-# MIN_ITEM = 0
-# MAX_ITEM = 5
-# array = [random.randint(MIN_ITEM, MAX_ITEM) for _ in range(SIZE)]
-# print('Массив:', array, sep='\n')
-#
-# numbers = dict()
-#
-# for item in array:
-#
-#     if item not in numbers:
-#         numbers[item] = 1
-#
-#     else:
-#         numbers[item] += 1
-#
-# print(f'Повторения чисел в массиве:\n{numbers}')
-#
-# max_count = 0
-# num_max_count = []
-#
-# for num in numbers:
-#
-#     if numbers[num] > max_count:
-#         max_count = numbers[num]
-#         num_max_count = [num]
-#
-#     elif numbers[num] == max_count:
-#         num_max_count.append(num)
-#
-# print('\nЧаще всего встречается:', end=' ')
-# print(*num_max_count)
-# print(f'Количество повторений: {max_count}')
+import random
+
+
+SIZE = 10
+MIN_ITEM = 0
+MAX_ITEM = 5
+array = [random.randint(MIN_ITEM, MAX_ITEM) for _ in range(SIZE)]
+print('Массив:', array, sep='\n')
+
+numbers = dict()
+
+for item in array:
+
+    if item not in numbers:
+        numbers[item] = 1
+
+    else:
+        numbers[item] += 1
+
+print(f'Повторения чисел в массиве:\n{numbers}')
+
+max_count = 0
+num_max_count = []
+
+for num in numbers:
+
+    if numbers[num] > max_count:
+        max_count = numbers[num]
+        num_max_count = [num]
+
+    elif numbers[num] == max_count:
+        num_max_count.append(num)
+
+print('\nЧаще всего встречается:', end=' ')
+print(*num_max_count)
+print(f'Количество повторений: {max_count}')
 
 
 # Массив:
-# [0, 0, 2, 5, 4, 2, 2, 0, 0, 3]
+# [5, 3, 2, 4, 1, 1, 2, 1, 0, 4]
 # Повторения чисел в массиве:
-# {0: 4, 2: 3, 5: 1, 4: 1, 3: 1}
-# # Чаще всего встречается: 0
-# Количество повторений: 4
+# {5: 1, 3: 1, 2: 2, 4: 2, 1: 3, 0: 1}
 #
-# Затраты памяти программы:  1232
-# Переменные:  [5,              0,      10,    [0, 0, 2, 5, 4, 2, 2, 0, 0, 3],   3     ,     4,          3,     [0],        {0: 4, 2: 3, 5: 1, 4: 1, 3: 1}]
-#             ['MAX_ITEM', 'MIN_ITEM',  'SIZE', 'array',                        'item', 'max_count', 'num', 'num_max_count', 'numbers']
+# Чаще всего встречается: 1
+# Количество повторений: 3
 
 
 # *******************Для проверки написанной функции на других типах переменных**************************
@@ -132,7 +132,7 @@ d = 'abcd'
 e = {1, 'ab', 2}
 
 # Переменные:  [1, [1, [2, 2], 3], {'a': 1, 'ab': [2, 3], 'abc': {4: 5, '66': 7}}, 'abcd']
-# Затраты памяти программы:  1293
+# Затраты памяти программы:  1655
 
 # ***************************************************************************************************
 # собираем переменные для подсчета затрачиваемой памяти
